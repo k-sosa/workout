@@ -12,3 +12,10 @@ app.use(express.json())
 
 const htmlRoutes = require("./routes/htmlroutes")
 const apiRoutes = require("./routes/apiroutes")
+
+htmlRoutes(app)
+apiRoutes(app)
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workout")
+app.listen(PORT, function() {
+    console.log("App is listening http://localhost:" + PORT)
+})
